@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="241.103" height="84.983" viewBox="0 0 241.103 84.983">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_417" data-name="Rectangle 417" width="241.103" height="84.983" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Artwork_57" data-name="Artwork 57" transform="translate(185.8 65.49)">
+    <g id="Group_206" data-name="Group 206" transform="translate(-185.8 -65.49)" clip-path="url(#clip-path)">
+      <text id="makane" transform="translate(0 59.981)" fill="#fff" font-size="71" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">ma</tspan><tspan y="0" letter-spacing="-0.03em">k</tspan><tspan y="0" letter-spacing="0.01em">a</tspan><tspan y="0" letter-spacing="0.03em">n</tspan><tspan y="0">e</tspan></text>
+      <path id="Path_2676" data-name="Path 2676" d="M111.454,69.677a4.477,4.477,0,1,1-4.477-4.477,4.477,4.477,0,0,1,4.477,4.477" transform="translate(-35.995 -22.897)" fill="#fff"/>
+      <path id="Path_2677" data-name="Path 2677" d="M217.854,71.677a4.477,4.477,0,1,1-4.477-4.477,4.477,4.477,0,0,1,4.477,4.477" transform="translate(-73.361 -23.599)" fill="#fff"/>
+      <path id="Path_2678" data-name="Path 2678" d="M142.387,119.762h-2.141a85.775,85.775,0,0,1-48.337-16.675,2.271,2.271,0,1,1,2.725-3.633,80.052,80.052,0,0,0,94.858.454,2.271,2.271,0,1,1,2.725,3.633,85.645,85.645,0,0,1-49.765,16.221" transform="translate(-31.957 -34.766)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
