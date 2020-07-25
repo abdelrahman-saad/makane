@@ -12,3 +12,7 @@ TextStyle kTextStyle(double size){
     fontFamily: 'Poppins'
   );
 }
+enum Toggle{
+  cafe,
+  resturants,
+}

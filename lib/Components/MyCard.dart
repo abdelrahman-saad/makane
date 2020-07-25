@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:makane/screens/SigninPage.dart';
 import '../constants.dart';
 
 class MyCard extends StatelessWidget {
@@ -12,45 +11,48 @@ class MyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(
-        minHeight: 283.0,
-        minWidth: 318.0,
-      ),
-
-      child: Card(
-
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0)
+        constraints: BoxConstraints(
+          minHeight: 283.0,
+          minWidth: 318.0,
         ),
-        elevation: 5.0,
 
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Image.asset(imagePath),
-            RawMaterialButton(
-              fillColor: kButtonColors,
-              child: Text(
-                text.toUpperCase(),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15.0,
+        child: Card(
+
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0)
+          ),
+          elevation: 5.0,
+
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Image.asset(imagePath),
+              RawMaterialButton(
+                fillColor: kButtonColors,
+                child: Text(
+                  text.toUpperCase(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15.0,
+
+                  ),
 
                 ),
-
-              ),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20.0),bottomRight: Radius.circular(20.0))
-              ),
-              onPressed: onPress,
-              constraints: BoxConstraints(
-                  minHeight: 62.0
-              ),
-            )
-          ],
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20.0),bottomRight: Radius.circular(20.0))
+                ),
+                onPressed: onPress,
+                constraints: BoxConstraints(
+                    minHeight: 62.0
+                ),
+              )
+            ],
+          ),
         ),
-      ),
-    );
+      );
+
   }
 }
+
+
