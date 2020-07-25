@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:makane/Components/AToggleButtons.dart';
 import '../constants.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:makane/constants.dart';
 
 class HomePage extends StatefulWidget {
   static final String id = 'HomePage';
@@ -12,7 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Toggle toggle = Toggle.cafe;
-
+  int NBIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,14 +25,16 @@ class _HomePageState extends State<HomePage> {
               child: Image.asset('Assets/images/Homepage.jpg'),
             ),
             Container(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height *0.25),
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.25),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Container(
 //                  alignment: Alignment.topCenter,
-                    height: MediaQuery.of(context).size.height * 0.65,
-                    padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 50.0),
+                    height: MediaQuery.of(context).size.height * 0.75,
+                    padding:
+                        EdgeInsets.symmetric(vertical: 40.0, horizontal: 50.0),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
@@ -50,10 +54,11 @@ class _HomePageState extends State<HomePage> {
                               borderRadius: BorderRadius.circular(15.0)),
                           child: TextField(
                             decoration: InputDecoration(
+                              icon: Icon(Icons.search),
                               border: InputBorder.none,
                               hintText: '\t Search',
-                              hintStyle:
-                                  TextStyle(color: Colors.grey.withOpacity(0.5)),
+                              hintStyle: TextStyle(
+                                  color: Colors.grey.withOpacity(0.5)),
                               fillColor: Colors.black,
                             ),
                           ),
@@ -77,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                               },
                             ),
                             AToggleButtons(
-                              text: 'Resurants',
+                              text: 'Restaurants',
                               color: toggle == Toggle.resturants
                                   ? Colors.white
                                   : Colors.black,
@@ -89,11 +94,9 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-Column(
-  children: <Widget>[
-    ReusableCard()
-  ],
-),
+                        Column(
+                          children: <Widget>[ReusableCard()],
+                        ),
 //                      List view of cards
                       ],
                     ),
@@ -104,20 +107,28 @@ Column(
           ],
         ),
       ),
-      bottomNavigationBar: Stack(
-        children: <Widget>[
-          BottomNavigationBar(
-            elevation: .0,
-            items: [
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.home), title: Text('home')),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.home), title: Text('home')),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.home), title: Text('home')),
-            ],
-          ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: NBIndex,
+        elevation: 5000,
+        backgroundColor: Colors.white,
+        selectedItemColor: kButtonColors,
+        unselectedItemColor: Colors.black54,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('home')),
+          BottomNavigationBarItem(
+              icon: Icon(AntDesign.calendar), title: Text('Calendar')),
+          BottomNavigationBarItem(
+              icon: Icon(Entypo.ticket), title: Text('Coupons')),
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.profile_circled),
+              title: Text('Profile')),
         ],
+        //initialActiveIndex: 2, //optional, default as 0
+        onTap: (i) {
+          setState(() {
+            NBIndex = i;
+          });
+        },
       ),
     );
   }
