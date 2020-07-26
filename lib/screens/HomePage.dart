@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Column(
                           children: <Widget>[
-                            ReusableCard(path:'Assets/images/default.png'),
+                            ReusableCard(path: 'Assets/images/default.png'),
                           ],
                         ),
 //                      List view of cards
@@ -157,7 +157,6 @@ class _HomePageState extends State<HomePage> {
 }
 
 class ReusableCard extends StatelessWidget {
-
   ReusableCard({this.path});
   final String path;
 
@@ -168,13 +167,10 @@ class ReusableCard extends StatelessWidget {
       elevation: 10.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
       child: Container(
-        padding: EdgeInsets.all( 10.0),
+        padding: EdgeInsets.all(10.0),
 //        height: 171,
 //        width: 318,
-      constraints: BoxConstraints(
-        minHeight: 171,
-       // minWidth: 318
-      ),
+        constraints: BoxConstraints(minHeight: 171, minWidth: 318),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -184,11 +180,13 @@ class ReusableCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Dawar Cafe',style: TextStyle(
-                    fontSize: 13.0,
-                    fontFamily: 'Poppins'
-                  ),),
-                  SizedBox(height: 10.0,),
+                  Text(
+                    'Dawar Cafe',
+                    style: TextStyle(fontSize: 13.0, fontFamily: 'Poppins'),
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
                   Text(
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                     style: TextStyle(
@@ -198,22 +196,33 @@ class ReusableCard extends StatelessWidget {
                     ),
                     textAlign: TextAlign.start,
                     maxLines: 4,
-
                     softWrap: true,
                     overflow: TextOverflow.clip,
                   ),
-                  SizedBox(height: 10.0,),
-
-                  Text('Availability ', style: TextStyle(fontFamily: 'Poppins',fontSize: 10.0),),
-                  SizedBox(height: 10.0,),
-
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text(
+                    'Availability ',
+                    style: TextStyle(fontFamily: 'Poppins', fontSize: 10.0),
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      Icon(CupertinoIcons.person),
+                      Icon(Octicons.person),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Text('55'),
+                      SizedBox(
+                        width: 15,
+                      ),
                       RatingBar(
-                        itemSize: 12,
+                        ignoreGestures: true,
+                        itemSize: 10,
                         initialRating: 3,
                         minRating: 1,
                         direction: Axis.horizontal,
@@ -225,7 +234,7 @@ class ReusableCard extends StatelessWidget {
                           color: Colors.amber,
                         ),
                         onRatingUpdate: (rating) {
-                          print(rating);
+                          //  print(rating);
                         },
                       ),
                     ],
