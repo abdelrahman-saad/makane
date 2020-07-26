@@ -114,18 +114,17 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1,
-              blurRadius: 20,
-              offset: Offset(0, 3),
-            )
-          ]
-        ),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 20,
+            offset: Offset(0, 3),
+          )
+        ]),
         child: ClipRRect(
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0)),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0)),
           child: BottomNavigationBar(
             elevation: 150.0,
 //            backgroundColor: Colors.blueGrey,
@@ -133,7 +132,8 @@ class _HomePageState extends State<HomePage> {
             selectedItemColor: kButtonColors,
             unselectedItemColor: Colors.black,
             items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('home')),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home), title: Text('home')),
               BottomNavigationBarItem(
                   icon: Icon(AntDesign.calendar), title: Text('Calendar')),
               BottomNavigationBarItem(
@@ -149,11 +149,9 @@ class _HomePageState extends State<HomePage> {
               });
             },
             type: BottomNavigationBarType.fixed,
-
           ),
         ),
       ),
-
     );
   }
 }
