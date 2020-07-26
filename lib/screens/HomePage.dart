@@ -4,6 +4,7 @@ import 'package:makane/Components/AToggleButtons.dart';
 import '../constants.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:makane/constants.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class HomePage extends StatefulWidget {
   static final String id = 'HomePage';
@@ -94,8 +95,13 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Column(
-                          children: <Widget>[ReusableCard()],
+                          children: <Widget>[
+                            ReusableCard(),
+                          ],
                         ),
 //                      List view of cards
                       ],
@@ -138,23 +144,53 @@ class ReusableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.black,
+      color: Colors.white,
       elevation: 10.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-      child: Row(
-        children: <Widget>[
-          Expanded(flex: 1, child: Image.asset('Assets/images/logo.png')),
-          Expanded(
-            flex: 2,
-            child: Column(
+      child: Container(
+        padding: EdgeInsets.all(20),
+        height: 171,
+        width: 318,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(child: Image.asset('Assets/images/coupon.png')),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('text'),
-                Text('text'),
-                Text('text'),
+                Text('Dawar Cafe'),
+                Text(
+                  'Lorem ipam, qut aliquip ex ',
+                ),
+                Text('Availability '),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Icon(CupertinoIcons.person),
+                    Text('55'),
+                    RatingBar(
+                      itemSize: 15,
+                      initialRating: 3,
+                      minRating: 1,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      itemCount: 5,
+                      itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                      itemBuilder: (context, _) => Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      onRatingUpdate: (rating) {
+                        print(rating);
+                      },
+                    ),
+                  ],
+                )
               ],
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

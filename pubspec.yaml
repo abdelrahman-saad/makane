@@ -31,6 +31,7 @@ dependencies:
   custom_splash: ^0.0.2
   dotted_border: ^1.0.6
   flutter_icons: ^1.1.0
+  flutter_rating_bar: ^3.0.1+1
 
 dev_dependencies:
   flutter_test:
