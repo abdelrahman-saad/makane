@@ -16,6 +16,10 @@ void main() {
   runApp(
     MaterialApp(
       home: MyApp(),
+      darkTheme: ThemeData.dark().copyWith(
+        backgroundColor: Colors.black,
+        accentColor: Colors.black
+      ),
       routes: {
         BoardingScreen.id:(context)=> BoardingScreen(),
         LoginScreen.id:(context) => LoginScreen(),

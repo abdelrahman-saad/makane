@@ -15,7 +15,16 @@ class MyCard extends StatelessWidget {
           minHeight: 283.0,
           minWidth: 318.0,
         ),
-
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 1,
+                blurRadius: 20,
+                offset: Offset(0, 3),
+              )
+            ]
+        ),
         child: Card(
 
           shape: RoundedRectangleBorder(

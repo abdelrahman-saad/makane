@@ -107,29 +107,77 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: NBIndex,
-        elevation: 5000,
-        backgroundColor: Colors.white,
-        selectedItemColor: kButtonColors,
-        unselectedItemColor: Colors.black54,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('home')),
-          BottomNavigationBarItem(
-              icon: Icon(AntDesign.calendar), title: Text('Calendar')),
-          BottomNavigationBarItem(
-              icon: Icon(Entypo.ticket), title: Text('Coupons')),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.profile_circled),
-              title: Text('Profile')),
-        ],
-        //initialActiveIndex: 2, //optional, default as 0
-        onTap: (i) {
-          setState(() {
-            NBIndex = i;
-          });
-        },
+      /*bottomNavigationBar: ClipRRect(
+        clipBehavior: Clip.hardEdge,
+
+        borderRadius: BorderRadius.only(topRight: Radius.circular(40.0), topLeft: Radius.circular(40.0)),
+        child: BottomNavigationBar(
+//          fixedColor: Colors.black,
+          currentIndex: NBIndex,
+          elevation: 0,
+          backgroundColor: Colors.black,
+          selectedItemColor: kButtonColors,
+          unselectedItemColor: Colors.black54,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('home')),
+            BottomNavigationBarItem(
+                icon: Icon(AntDesign.calendar), title: Text('Calendar')),
+            BottomNavigationBarItem(
+                icon: Icon(Entypo.ticket), title: Text('Coupons')),
+            BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.profile_circled),
+                title: Text('Profile')),
+          ],
+          type: BottomNavigationBarType.shifting,
+          //initialActiveIndex: 2, //optional, default as 0
+          onTap: (i) {
+            setState(() {
+              NBIndex = i;
+            });
+          },
+        ),
+      ),*/
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 20,
+              offset: Offset(0, 3),
+            )
+          ]
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0)),
+          child: BottomNavigationBar(
+            elevation: 150.0,
+//            backgroundColor: Colors.blueGrey,
+//          fixedColor: Colors.blueGrey,
+            selectedItemColor: kButtonColors,
+            unselectedItemColor: Colors.black,
+            items: [
+              BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('home')),
+              BottomNavigationBarItem(
+                  icon: Icon(AntDesign.calendar), title: Text('Calendar')),
+              BottomNavigationBarItem(
+                  icon: Icon(Entypo.ticket), title: Text('Coupons')),
+              BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.profile_circled),
+                  title: Text('Profile')),
+            ],
+            currentIndex: NBIndex,
+            onTap: (i) {
+              setState(() {
+                NBIndex = i;
+              });
+            },
+            type: BottomNavigationBarType.fixed,
+
+          ),
+        ),
       ),
+
     );
   }
 }
