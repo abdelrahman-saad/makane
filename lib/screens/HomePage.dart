@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
 //                  alignment: Alignment.topCenter,
                     height: MediaQuery.of(context).size.height * 0.75,
                     padding:
-                        EdgeInsets.symmetric(vertical: 40.0, horizontal: 50.0),
+                        EdgeInsets.symmetric(vertical: 40.0, horizontal: 40.0),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Column(
                           children: <Widget>[
-                            ReusableCard(),
+                            ReusableCard(path:'Assets/images/default.png'),
                           ],
                         ),
 //                      List view of cards
@@ -113,36 +113,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      /*bottomNavigationBar: ClipRRect(
-        clipBehavior: Clip.hardEdge,
-
-        borderRadius: BorderRadius.only(topRight: Radius.circular(40.0), topLeft: Radius.circular(40.0)),
-        child: BottomNavigationBar(
-//          fixedColor: Colors.black,
-          currentIndex: NBIndex,
-          elevation: 0,
-          backgroundColor: Colors.black,
-          selectedItemColor: kButtonColors,
-          unselectedItemColor: Colors.black54,
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('home')),
-            BottomNavigationBarItem(
-                icon: Icon(AntDesign.calendar), title: Text('Calendar')),
-            BottomNavigationBarItem(
-                icon: Icon(Entypo.ticket), title: Text('Coupons')),
-            BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.profile_circled),
-                title: Text('Profile')),
-          ],
-          type: BottomNavigationBarType.shifting,
-          //initialActiveIndex: 2, //optional, default as 0
-          onTap: (i) {
-            setState(() {
-              NBIndex = i;
-            });
-          },
-        ),
-      ),*/
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           boxShadow: [
@@ -189,6 +159,10 @@ class _HomePageState extends State<HomePage> {
 }
 
 class ReusableCard extends StatelessWidget {
+
+  ReusableCard({this.path});
+  final String path;
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -196,46 +170,70 @@ class ReusableCard extends StatelessWidget {
       elevation: 10.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
       child: Container(
-        padding: EdgeInsets.all(20),
-        height: 171,
-        width: 318,
+        padding: EdgeInsets.all( 10.0),
+//        height: 171,
+//        width: 318,
+      constraints: BoxConstraints(
+        minHeight: 171,
+       // minWidth: 318
+      ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Container(child: Image.asset('Assets/images/coupon.png')),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Dawar Cafe'),
-                Text(
-                  'Lorem ipam, qut aliquip ex ',
-                ),
-                Text('Availability '),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Icon(CupertinoIcons.person),
-                    Text('55'),
-                    RatingBar(
-                      itemSize: 15,
-                      initialRating: 3,
-                      minRating: 1,
-                      direction: Axis.horizontal,
-                      allowHalfRating: true,
-                      itemCount: 5,
-                      itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                      itemBuilder: (context, _) => Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      onRatingUpdate: (rating) {
-                        print(rating);
-                      },
+            Container(child: Image.asset(path)),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Dawar Cafe',style: TextStyle(
+                    fontSize: 13.0,
+                    fontFamily: 'Poppins'
+                  ),),
+                  SizedBox(height: 10.0,),
+                  Text(
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                    style: TextStyle(
+                      color: Colors.grey.withOpacity(0.5),
+                      fontSize: 10.0,
+                      fontFamily: 'Poppins',
                     ),
-                  ],
-                )
-              ],
+                    textAlign: TextAlign.start,
+                    maxLines: 4,
+
+                    softWrap: true,
+                    overflow: TextOverflow.clip,
+                  ),
+                  SizedBox(height: 10.0,),
+
+                  Text('Availability ', style: TextStyle(fontFamily: 'Poppins',fontSize: 10.0),),
+                  SizedBox(height: 10.0,),
+
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Icon(CupertinoIcons.person),
+                      Text('55'),
+                      RatingBar(
+                        itemSize: 12,
+                        initialRating: 3,
+                        minRating: 1,
+                        direction: Axis.horizontal,
+                        allowHalfRating: true,
+                        itemCount: 5,
+                        itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                        itemBuilder: (context, _) => Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        onRatingUpdate: (rating) {
+                          print(rating);
+                        },
+                      ),
+                    ],
+                  )
+                ],
+              ),
             )
           ],
         ),
